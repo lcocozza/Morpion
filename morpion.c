@@ -10,6 +10,9 @@ int	main()
 	int jeu = 1;
 	int V1 = 0;
 	int V2 = 0;
+	int tour = 0;
+	int *x = 0;
+	int *y = 0;
 
 	P1 = malloc(15 * sizeof(char));
 	P2 = malloc(15 * sizeof(char));
@@ -26,7 +29,12 @@ int	main()
 		system("clear");
 		display_head(P1, P2, V1, V2);
 		display_tab(tab);
+		if (tour)
+			printf("%s, a vous de jouer !\n", P2);
+		else
+			printf("%s, a vous de jouer !\n", P1);
 
+		return 0;
 	}
 
 	return 0;
