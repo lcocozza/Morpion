@@ -35,19 +35,19 @@ void	display_head(char *P1, char *P2, int V1, int V2)
 		"%s = %d.\n", P1, P2, P1, V1, P2, V2);
 }
 
-int	check_case(char tab[3][3], int x, int y)
+int	check_case(char tab[3][3], int *pos)
 {
-	if (tab[x][y] != ' ')
+	if ((pos[0] < 0 || pos[0] > 2) && (pos[1] < 0 || pos[1] > 2))
 		return 1;
-	if ((x < 0 || x > 2) && (y < 0 || y > 2))
+	if (tab[pos[0]][pos[1]] != ' ')
 		return 2;
 	return 0;
 }
 
-void	select_case(int x, int y)
+void	select_case(int *pos)
 {
 	printf("ligne: ");
-	scanf("%d", &x);
-	printf("Colone: ");
-	scanf("%d", &y);
+	scanf("%d", &pos[0]);
+	printf("Colonne: ");
+	scanf("%d", &pos[1]);
 }

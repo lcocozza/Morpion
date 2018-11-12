@@ -9,13 +9,13 @@ int	main()
 	int V1 = 0;
 	int V2 = 0;
 	int tour = 0;
-	int x = 0;
-	int y = 0;
+	int *pos = NULL;
 	int erreur = 0;
 	int reload = 1;
 
-	P1 = malloc(15 * sizeof(char));
-	P2 = malloc(15 * sizeof(char));
+	P1 = malloc(sizeof(char) * 15);
+	P2 = malloc(sizeof(char) * 15);
+	pos = malloc(sizeof(int) * 3);
 
 	if (P1 == NULL || P2 == NULL)
 		exit(0);
@@ -31,23 +31,22 @@ int	main()
 			system(CLRSCR);
 			display_head(P1, P2, V1, V2);
 			display_tab(tab);
-			if (erreur == 1)
-				printf("la case contient deja %c !\n", tab[x][y]);
-			else if (erreur == 2)
-				printf("La case selectionner ne fait pas partie de la grille !");
+			if (erreur == 2)
+				printf("la case contient deja %c !\n", tab[pos[0]][pos[1]]);
+			else if (erreur == 1)
+				printf("La case selectionner ne fait pas\npartie de la grille !\n");
 			else if (tour)
 				printf("%s, a vous de jouer !\n", P2);
 			else
 				printf("%s, a vous de jouer !\n", P1);
-			select_case(x, y);
-			printf("x = %d, y = %d\n", x, y);
-			erreur = check_case(tab, x, y);
-			reload = 0;
+			select_case(pos);
+			erreur = check_case(tab, pos);
 		}
 		return 0;
 	}
 	free(P1);
 	free(P2);
+	free(pos);
 
 	return 0;
 }
