@@ -11,8 +11,8 @@ int	main()
 	int V1 = 0;
 	int V2 = 0;
 	int tour = 0;
-	int *x = 0;
-	int *y = 0;
+	int x = 0;
+	int y = 0;
 	int erreur = 0;
 	int reload = 1;
 
@@ -42,7 +42,9 @@ int	main()
 			else
 				printf("%s, a vous de jouer !\n", P1);
 			select_case(x, y);
+			printf("x = %d, y = %d\n", x, y);
 			erreur = check_case(tab, x, y);
+			reload = 0;
 		}
 		return 0;
 	}

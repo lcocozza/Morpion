@@ -39,16 +39,16 @@ void	display_head(char *P1, char *P2, int V1, int V2)
 		"%s = %d.\n", P1, P2, P1, V1, P2, V2);
 }
 
-int	check_case(char tab[3][3], int *x, int *y)
+int	check_case(char tab[3][3], int x, int y)
 {
 	if (tab[x][y] != ' ')
 		return 1;
-	if ((x < 0 || x > 2) || (y < 0 || y > 2))
+	if ((x < 0 || x > 2) && (y < 0 || y > 2))
 		return 2;
 	return 0;
 }
 
-void	select_case(int *x, int *y)
+void	select_case(int x, int y)
 {
 	printf("ligne: ");
 	scanf("%d", &x);
