@@ -20,12 +20,12 @@ int	main()
 	if (P1 == NULL || P2 == NULL)
 		exit(0);
 
-	init_tab(tab);
-	system(CLRSCR);
-	name(P1, P2);
-
 	while (jeu)
-	{	
+	{
+		init_tab(tab);
+		system(CLRSCR);
+		name(P1, P2);
+	
 		while (reload)
 		{
 			system(CLRSCR);
@@ -41,6 +41,11 @@ int	main()
 				printf("%s, a vous de jouer !\n", P1);
 			select_case(pos);
 			erreur = check_case(tab, pos);
+			if (erreur == 0)
+				if (tour)
+					tab[pos[0]][pos[1]] = 'O';
+				else
+					tab[pos[0]][pos[1]] = 'X';
 		}
 		return 0;
 	}
