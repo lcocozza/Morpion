@@ -28,7 +28,7 @@ int	main()
 
 		while (reload)
 		{
-			//system(CLRSCR);
+			system(CLRSCR);
 			display_head(P1, P2, V1, V2);
 			display_tab(tab);
 			if (test_win(tab) != 0)
