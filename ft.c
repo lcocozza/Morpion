@@ -79,13 +79,11 @@ int	test_win(char tab[3][3])
 int	check_egal(char tab[3][3])
 {
 	int j;
-
+	
+	printf("tab egal = %c\n", tab[0][0]);
 	for (int i = 0; i < 3; i++)
-	{
 		for (j = 0; j < 3; j++)
 			if (tab[i][j] == ' ')
-				return 1;
-		j = 0;
-	}
+				return 1; printf("pas d'egalite");
 	return 0;
 }
