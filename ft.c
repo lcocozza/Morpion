@@ -51,3 +51,27 @@ void	select_case(int *pos)
 	printf("Colonne: ");
 	scanf("%d", &pos[1]);
 }
+
+int	test_win(char tab[3][3])
+{
+	//lignes
+	if ((tab[0][0] == tab[0][1] && tab[0][1] == tab[0][2]) && tab[0][1] != ' ')
+		return 1; printf("tab[0][1] = %c\n", tab[0][1]);
+	if ((tab[1][0] == tab[1][1] && tab[1][1] == tab[1][2]) != ' ')
+		return 1;
+	if ((tab[2][0] == tab[2][1] && tab[2][1] == tab[2][2]) != ' ')
+		return 1;
+	//colonnes
+	if ((tab[0][0] == tab[1][0] && tab[1][0] == tab[2][0]) != ' ')
+		return 1;
+	if ((tab[0][1] == tab[1][1] && tab[1][1] == tab[2][1]) != ' ')
+		return 1;
+	if ((tab[0][2] == tab[1][2] && tab[1][2] == tab[2][2]) != ' ')
+		return 1;
+	//diagonal
+	if ((tab[0][0] == tab[1][1] && tab[1][1] == tab[2][2]) != ' ')
+		return 1;
+	if ((tab[0][2] == tab[1][1] && tab[1][1] == tab[2][0]) != ' ')
+		return 1;
+	return 0;
+}

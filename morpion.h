@@ -13,4 +13,5 @@ void	init_tab(char tab[3][3]);
 void	display_head(char *P1, char *P2, int V1, int V2);
 int	check_case(char tab[3][3], int *pos);
 void	select_case(int *pos);
+int	test_win(char tab[3][3]);
 
