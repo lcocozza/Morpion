@@ -19,19 +19,20 @@ int	main()
 
 	if (P1 == NULL || P2 == NULL)
 		exit(0);
+	system(CLRSCR);
+	name(P1, P2);
 
 	while (jeu)
 	{
 		init_tab(tab);
 		system(CLRSCR);
-		name(P1, P2);
 
 		while (reload)
 		{
 			system(CLRSCR);
 			display_head(P1, P2, V1, V2);
 			display_tab(tab);
-			if (test_win(tab) != 0)
+			if (test_win(tab) != 0 || check_egal(tab) != 0)
 				reload = 0;
 			else
 			{
@@ -56,9 +57,29 @@ int	main()
 						tab[pos[0]][pos[1]] = 'X';
 			}
 		}
-		printf("Gagner\n");
-		return 0;
+		system(CLRSCR);
+
+		if (tour == 1 && check_egal(tab) == 0)
+			V2++;
+		else if (check_egal(tab) == 0)
+			V1++;
+		display_head(P1, P2, V1, V2);
+		display_tab(tab);
+
+		if (check_egal(tab) == 1)
+			printf("Personne n'a gagner, c'est une egalitee !\n");
+		else if (tour)
+			printf("%s a gagner la partie !\n", P2);
+		else
+			printf("%s a gagner la patie !\n", P1);
+		printf(	"voulez vous rejouer ?\n"
+			"1. Oui\n"
+			"0. Non\n");
+		scanf("%d", &jeu);
+		if (jeu)
+			reload = 1;
 	}
+	system(CLRSCR);
 	free(P1);
 	free(P2);
 	free(pos);
