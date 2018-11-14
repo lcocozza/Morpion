@@ -26,11 +26,11 @@ int	main()
 	while (jeu)
 	{
 		init_tab(tab);
-		//system(CLRSCR);
+		system(CLRSCR);
 
 		while (reload)
 		{
-			//system(CLRSCR);
+			system(CLRSCR);
 			display_head(P1, P2, V1, V2);
 			display_tab(tab);
 			if (tour == 1 && erreur == 0)
@@ -42,9 +42,9 @@ int	main()
 			else if (erreur == 1)
 				printf("La case selectionner ne fait pas\npartie de la grille !\n");
 			else if (tour)
-				printf("%s, a vous de jouer !\n", P2);
+				printf("%s, a vous de jouer (O) !\n", P2);
 			else
-				printf("%s, a vous de jouer !\n", P1);
+				printf("%s, a vous de jouer (X) !\n", P1);
 			select_case(pos);
 			erreur = check_case(tab, pos);
 			if (erreur == 0)
@@ -56,7 +56,7 @@ int	main()
 			if (test_win(tab) == 1 || egal == 1)
 				reload = 0;
 		}
-		//system(CLRSCR);
+		system(CLRSCR);
 
 		if (tour == 1 && egal == 0)
 			V2++;

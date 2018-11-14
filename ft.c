@@ -84,6 +84,6 @@ int	check_egal(char tab[3][3])
 	for (int i = 0; i < 3; i++)
 		for (j = 0; j < 3; j++)
 			if (tab[i][j] == ' ')
-				return 1; printf("pas d'egalite");
-	return 0;
+				return 0;
+	return 1;
 }
