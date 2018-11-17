@@ -13,6 +13,7 @@ int	main()
 	int erreur = 0;
 	int reload = 1;
 	int egal = 0;
+	int win = 0;
 
 	P1 = malloc(sizeof(char) * 15);
 	P2 = malloc(sizeof(char) * 15);
@@ -52,8 +53,9 @@ int	main()
 					tab[pos[0]][pos[1]] = 'O';
 				else
 					tab[pos[0]][pos[1]] = 'X';
-			egal = check_egal(tab);
-			if (test_win(tab) == 1 || egal == 1)
+			win = test_win(tab);
+			egal = check_egal(tab, win);
+			if (win == 1 || egal == 1)
 				reload = 0;
 		}
 		system(CLRSCR);
@@ -76,10 +78,7 @@ int	main()
 				"0. Non\n");
 		scanf("%d", &jeu);
 		if (jeu)
-		{
 			reload = 1;
-			tour = 0;
-		}
 	}
 	system(CLRSCR);
 	free(P1);
