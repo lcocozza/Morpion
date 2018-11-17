@@ -1,8 +1,0 @@
-# Ignore
-
-a.out
-*~
-*.o
-morpion
-
-# Ce fichier va ignorer certains fichiers quand tu fais `git status`, histoire que tu push plus tes exe, et que t'évites de push des fichiers de merde
